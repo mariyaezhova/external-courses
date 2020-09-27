@@ -7,6 +7,7 @@ function countEvenAndOddElements(numbers) {
         if ((typeof numbers[i] !== 'number') || isNaN(numbers[i])) {
             continue;
         }
+
         if (numbers[i] === 0) {
             zeroCounter++;
         } else if (numbers[i] % 2 === 0) {
@@ -15,6 +16,8 @@ function countEvenAndOddElements(numbers) {
             oddCounter++;
         }
     }
+
     return [evenCounter, oddCounter, zeroCounter];
 }
+
 module.exports = countEvenAndOddElements;
