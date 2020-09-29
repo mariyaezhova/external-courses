@@ -1,8 +1,10 @@
 'use strict';
 function defineNumberOrString(argument) {
+    const argType = typeof argument;
+
     if (!Number.isNaN(argument)) {
-        if ((typeof argument === 'number') || (typeof argument === 'string')) {
-            return typeof argument;
+        if ((argType === 'number') || (argType === 'string')) {
+            return argType;
         }
     }
 

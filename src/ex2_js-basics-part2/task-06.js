@@ -12,9 +12,4 @@ function isPrime(number) {
     return `Число ${number} - простое число`;
 }
 
-isPrime(15); // Число 88 - составное число
-isPrime(631); // Число 631 - простое число
-isPrime(2); // Число 2 - простое число
-isPrime(-5); // Данные неверны
-isPrime(1010); // Данные неверны
 module.exports = isPrime;
