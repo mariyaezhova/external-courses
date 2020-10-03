@@ -1,11 +1,12 @@
 'use strict';
 function setNewProperty (property, obj) {
+    const modifyObj = obj;
+
     if (!obj.hasOwnProperty(property)) {
-        // eslint-disable-next-line no-param-reassign
-        obj[property] = 'new';
+        modifyObj[property] = 'new';
     }
     
-    return obj;
+    return modifyObj;
 }
 
 module.exports = setNewProperty;
