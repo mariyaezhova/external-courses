@@ -1,7 +1,6 @@
 'use strict';
 function clone(obj) {
-    const cloneObject = Object.assign({}, obj);
-    return cloneObject;
+    return Object.assign({}, obj);
 }
 
 module.exports = clone;
