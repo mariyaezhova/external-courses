@@ -1,6 +1,6 @@
 'use strict';
-function returnRandomNumberBetweenZeroAndHundred() {
-    return Math.random() * 100;
+function getRandomNumberBetweenZeroAndHundred() {
+    return Math.round(Math.random() * 100);
 }
 
-module.exports = returnRandomNumberBetweenZeroAndHundred;
+module.exports = getRandomNumberBetweenZeroAndHundred;

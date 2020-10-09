@@ -10,8 +10,7 @@ function countNumberOfEachSymbol(str) {
         }
     }
 
-    Object.keys(lettersObj).forEach((element) => console.log(`Character ${element} occurs in the string ${lettersObj[element]} times`));
-        
+    Object.keys(lettersObj).forEach((element) => console.log(`Character ${element} occurs in the string ${lettersObj[element]} times`)); 
 }
 
 module.exports = countNumberOfEachSymbol;
