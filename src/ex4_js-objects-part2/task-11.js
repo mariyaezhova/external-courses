@@ -3,10 +3,10 @@ function countNumberOfEachSymbol(str) {
     let lettersObj = {};
 
     for (let i = 0; i < str.length; i++) {
-        if (lettersObj[str[i]] === undefined) {
-            lettersObj[str[i]] = 1;
-        } else {
+        if (lettersObj[str[i]]) {
             lettersObj[str[i]]++;
+        } else {
+            lettersObj[str[i]] = 1;
         }
     }
 
