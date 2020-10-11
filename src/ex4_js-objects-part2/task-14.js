@@ -1,0 +1,6 @@
+'use strict';
+function getRandomNumberBetweenMinAndMax(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+module.exports = getRandomNumberBetweenMinAndMax;
