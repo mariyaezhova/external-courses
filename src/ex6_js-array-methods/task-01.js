@@ -1,6 +1,6 @@
 'use strict';
 function implementSliceMethod(arr, begin, end) {
-    let arrayClone = [];
+    let arraySlice = [];
     let startLoop, endLoop;
 
     if (begin >= 0) {
@@ -18,10 +18,10 @@ function implementSliceMethod(arr, begin, end) {
     }
 
     for (let i = startLoop; i < endLoop; i++) {
-        arrayClone.push(arr[i]);
+        arraySlice.push(arr[i]);
     }
 
-    return arrayClone;
+    return arraySlice;
 }
 
 module.exports = implementSliceMethod;
