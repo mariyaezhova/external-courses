@@ -1,6 +1,8 @@
 'use strict';
 function implementReduceMethod(array, callback, initialValue) {
-    let accumulator, result, iterator;
+    let accumulator;
+    let result;
+    let iterator;
 
     if (array.length === 0 && !initialValue) {
         return 'TypeError: implementReduceMethod called on null or undefined'
@@ -11,6 +13,7 @@ function implementReduceMethod(array, callback, initialValue) {
         (array.length === 1 && !initialValue)
     ) {
         result = initialValue || array[0];
+
         return result;
     } 
     
