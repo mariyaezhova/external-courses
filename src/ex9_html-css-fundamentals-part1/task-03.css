@@ -1,0 +1,31 @@
+.parent {
+    display: grid;
+    background-color: rgb(202, 202, 202);
+    width: 200px;
+    height: 60px;
+    place-items: center;
+    border-radius: 10px;
+    border: 1.5px solid rgb(117, 117, 117);
+    padding: 1px;
+    background-clip: content-box;
+    box-shadow: 0 2px 5px rgb(117, 117, 117);
+}
+.child {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    color: rgb(138, 138, 138);
+    background: linear-gradient(to bottom, #f3f3f3, #8b8b8b);
+    width: 95%;
+    height: 84%;
+    border-radius: inherit;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    box-shadow: inherit;
+    border: 1px solid rgb(117, 117, 117);
+}
+.text {
+    color: rgb(85, 84, 84);
+    font-size: 20px;
+}
