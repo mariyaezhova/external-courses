@@ -12,13 +12,11 @@
     background-color: rgb(245, 183, 68);
 }
 .version-2:first-child {
-    position: absolute;
     background-color: rgba(245, 183, 68, 0.7);
     top: 7px;
     left: 7px
 }
 .version-2:last-child {
-    position: relative;
     background-color: rgba(245, 183, 68, 0.5);
     top: 14px;
     left: 14px
