@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex8_html-css-basics: task 2</title>
+    <link rel="stylesheet" type="text/css" href="task-04.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        div.background {
+            background: url(https://live24.ru/uploads/posts/2020-05/1588683864_2.webp);
+            background-size: 100%;
+        }
+
+        p.background {
+            background-color: rgba(12, 104, 62, 0.3);
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        table {
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="height: 80px">HTML Basics</h1>
+    <h2>Lists</h2>
+    <div class="background">
+        <h3>Ordered list</h3>
+        <ol>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+            <li>Fourth item</li>
+            <li>Fifth item</li>
+        </ol>
+    </div>    
+    <h3 style="width: 10em">Unordered list</h3>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+    </ul>
+    <div style="background-color: aquamarine;">
+        <h3>Description list</h3>
+        <dl>
+            <dt>Name</dt>
+            <dd>Godzilla</dd>
+            <dt>Born</dt>
+            <dd>1952</dd>
+            <dt>Birthplace</dt>
+            <dd>Japan</dd>
+            <dt>Color</dt>
+            <dd>Green</dd>
+        </dl>
+        <h3>Nested list</h3>
+        <ul>
+            <li>List items one</li>
+            <li>List items two with subitems:
+                <ul>
+                    <li>Subitem 1
+                        <ul>
+                            <li>SubSubitem 1</li>
+                            <li>SubSubitem 2</li>
+                        </ul>
+                    </li>
+                    <li>Subitem 2</li>
+                </ul>
+            </li>
+            <li>Final list item</li>
+        </ul>
+    </div>    
+    <h3>List with links</h3>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <hr>
+    <h2 style="color:cornflowerblue; font-weight: 500; font-size: 5em">Paragraphs</h2>
+    <p class="background">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu pulvinar nibh. Fusce fermentum faucibus sem. Pellentesque eget ligula leo. Curabitur commodo arcu risus, eget tincidunt nibh pharetra et. Pellentesque ex neque, ultricies sit amet risus non, mattis bibendum lectus. Praesent enim elit, efficitur et hendrerit quis, pretium eu felis. Mauris facilisis malesuada urna, quis maximus magna pharetra at. Fusce congue quam tincidunt ultricies placerat. Nulla dignissim libero lobortis, mollis urna sed, venenatis tellus. Mauris eget purus sit amet libero tincidunt facilisis. Nullam porttitor et diam vel pellentesque. Morbi ac semper sem. Phasellus faucibus diam eu felis pellentesque dapibus. Nam auctor lorem id sem tempor, maximus egestas sapien pretium. Pellentesque et leo vitae lorem molestie luctus vel sit amet est. Fusce est odio, dapibus eget libero quis, rutrum commodo ipsum.</p>
+    <p>Pellentesque mi diam, posuere id ultricies ac, scelerisque ac velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae nisi eros. Donec ut enim ut magna ultricies laoreet vel ac neque. Fusce hendrerit diam sit amet varius ultrices. Cras sit amet odio eget sapien scelerisque rhoncus. In consectetur nulla at sem dapibus lobortis. Aenean eget consequat ex, vitae viverra lacus. Suspendisse potenti. Fusce ac scelerisque arcu, id tempor sapien. Curabitur sed convallis turpis, rutrum euismod turpis. In rhoncus molestie lorem a luctus. Nulla imperdiet consectetur enim, ut feugiat erat gravida eu. Pellentesque egestas cursus nibh. Aenean sed sagittis leo.</p>
+    <hr>
+    <h2>Tables</h2>
+    <table style="font-family: cursive">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+        <tr>
+            <td>Masha</td>
+            <td>Ezhova</td>
+        </tr>
+        <tr>
+            <td>Elena</td>
+            <td>Kosyakova</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Image</h2>
+    <img src="https://live24.ru/uploads/posts/2020-05/1588683864_2.webp" width="500" alt="Sea">
+    <hr style="width: 20%">
+    <h2>Pre Tag</h2>
+    <pre>
+        if (begin >= 0) {
+            startLoop = begin;
+        } else if (begin !== undefined && arr.length + begin > 0) {
+            startLoop = arr.length + begin;
+        } else {
+            startLoop = 0;
+        }
+    </pre>
+</body>
+</html>
