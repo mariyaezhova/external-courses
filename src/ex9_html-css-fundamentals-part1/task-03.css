@@ -1,3 +1,4 @@
+@import '/task-03-reset.css';
 .parent {
     background-color: rgb(202, 202, 202);
     border-radius: 10px;
