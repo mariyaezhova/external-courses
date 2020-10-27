@@ -1,4 +1,4 @@
-.version-1, .version-2, .version-3, .version-3::before, .version-3::after {
+.version-1, .version-2, .childs-version-2, .version-3, .version-3:before, .version-3:after {
     width: 600px;
     height: 300px;
 }
@@ -8,25 +8,27 @@
     margin-bottom: 5%;
 }
 .version-2 {
-    position: absolute;
+    position: relative;
     background-color: rgb(245, 183, 68);
+    margin-bottom: 5%;
 }
-.version-2:first-child {
+.childs-version-2:first-child {
+    position: absolute;
     background-color: rgba(245, 183, 68, 0.7);
     top: 7px;
     left: 7px
 }
-.version-2:last-child {
+.childs-version-2:last-child {
+    position: absolute;
     background-color: rgba(245, 183, 68, 0.5);
     top: 14px;
     left: 14px
 }
 .version-3 {
     position: relative;
-    top: 370px;
     background-color: rgb(102, 149, 180);
 }
-.version-3::before {
+.version-3:before {
     content: '';
     position: absolute;
     top: 7px;
@@ -34,7 +36,7 @@
     z-index: -1;
     background-color: rgb(102, 149, 180, 0.7);
 }
-.version-3::after {
+.version-3:after {
     content: '';
     position: absolute;
     top: 14px;

@@ -11,8 +11,7 @@ header {
 }
 section {
     background: lightgreen;
-    width: 70%;
-    flex-grow: 2;
+    width: calc(70% - 1rem);
 }
 article {
     background: white;
@@ -20,8 +19,7 @@ article {
 }
 aside {
     background: pink;
-    width: 20%;
-    flex-grow: 1;
+    width: calc(30% - 1rem);
 }
 header, article, section, .module {
     padding: 1rem;
