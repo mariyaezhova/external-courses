@@ -1,0 +1,26 @@
+body {
+    padding: 30px;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+header {
+    background: lightblue;
+    width: 100%;
+}
+section {
+    background: lightgreen;
+    width: calc(70% - 2rem);
+}
+article {
+    background: white;
+    margin: 0 0 1rem 0;
+}
+aside {
+    background: pink;
+    width: 30%;
+}
+header, article, section, .module {
+    padding: 1rem;
+}

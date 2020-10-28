@@ -1,0 +1,30 @@
+@import '/task-03-reset.css';
+.parent {
+    background-color: rgb(202, 202, 202);
+    border-radius: 10px;
+    border: 1.5px solid rgb(117, 117, 117);
+    padding: 1px;
+    background-clip: content-box;
+    box-shadow: 0 2px 5px rgb(117, 117, 117);
+}
+span {
+    display: flex;
+    color: rgb(85, 84, 84);
+    background: linear-gradient(to bottom, #f3f3f3, #8b8b8b);
+    border-radius: inherit;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    box-shadow: inherit;
+    border: 1px solid rgb(117, 117, 117);
+    margin: 3px;
+    font-size: 20px;
+    padding: 10px 0px;
+}
+span:before, span:after {
+    content: '\2605';
+    color: rgb(138, 138, 138);
+    padding: 0px 7px;
+    font-size: 25px;
+    line-height: 25px;
+}
