@@ -35,6 +35,7 @@ body {
 }
 .location {
     position: relative;
+    box-sizing: border-box;
     width: 100%;
     text-align: center;
     border: 2px solid #ECEEF4;
@@ -47,7 +48,7 @@ body {
 .location:before, .location:after {
     content: ''; 
     position: absolute;
-    left: 114px; 
+    left: calc(50% - 22.5px); 
     bottom: -32.5px;
     border: 22.5px solid transparent;
     border-top: 10px solid #ECEEF4;
@@ -104,8 +105,6 @@ body {
     padding-right: 30px;
 }
 .link:nth-child(6):after {
-    content: url(/images/divide@1X.png);
-    margin-left: 30px;
     visibility: hidden;
 }
 .link:after {
@@ -208,6 +207,9 @@ body {
 }
 .main {
     position: relative;
+    background-image: url(images/iback@1X.png);
+    width: 2000px;
+    height: 885px;
 }
 h3 {
     color: #6D6E71;
@@ -223,7 +225,7 @@ h3 {
     grid-template-rows: 25% auto;
     grid-template-columns: 30% auto;
     width: 25%;
-    padding: 2% 4% 7% 4%;
+    margin: 2% 4% 7% 4%;
 }
 .text-about, .text-why {
     grid-column: 2 / 3;
@@ -234,6 +236,7 @@ h3 {
 }
 .table-lamp, .tree {
     grid-row: 1 / 3;
+    grid-column: 1 / 2;
 }
 input::-webkit-input-placeholder {
     color:#6D6E71;
@@ -241,11 +244,6 @@ input::-webkit-input-placeholder {
     font-family: OpenSans-Light, AdobeArabic-Regular;
 }
 input::-moz-placeholder {
-    color:#6D6E71;
-    font-size: 15px;
-    font-family: OpenSans-Light, AdobeArabic-Regular;
-}
-input:-moz-placeholder {
     color:#6D6E71;
     font-size: 15px;
     font-family: OpenSans-Light, AdobeArabic-Regular;
