@@ -1,6 +1,6 @@
 <svg display="none" xmlns="http://www.w3.org/2000/svg">
-    <symbol id="burger" viewBox="0 0.417 61 10.167">
-        <path paint-order="stroke fill markers" fill-rule="evenodd" d="M1 1h60v10H1V1z"/>
+    <symbol id="burger" viewBox="0 0.417 61 10.167" width="61px" height="11px">
+        <path fill="#3687C4" fill-rule="evenodd" d="M1 1h60v10H1V1z"/>
     </symbol>
     <symbol id="divide" viewBox="0.4791259765625 0 1.0416667461395264 25">
         <g>
