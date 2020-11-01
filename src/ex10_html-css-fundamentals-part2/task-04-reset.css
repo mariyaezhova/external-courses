@@ -7,7 +7,6 @@ hr {
     border: none;
     margin: 0;
 }
-
-h1, h2, h3, p, hr {
+h1, h2, h3, p, hr, body {
     margin: 0px;
 }
