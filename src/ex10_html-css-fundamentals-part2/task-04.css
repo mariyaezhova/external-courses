@@ -1,4 +1,4 @@
-@import "/task-04-reset.css";
+@import "task-04-reset.css";
 @font-face {
     font-family: OpenSans;
     src: url(fonts/OpenSans-B9K8.ttf);
@@ -26,6 +26,9 @@ body {
     display: flex;
     justify-content: space-evenly;
     padding: 60px 0px;
+}
+.burger {
+    display: none;
 }
 .contact {
     display: flex;
@@ -69,14 +72,13 @@ body {
     cursor: pointer;
 }
 .logo-wrapper {
-    display: inline-block;
-    position: relative;
+    background-image: url(/images/logo.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 403px;
+    height: 93px;
     margin-bottom: 15px;
-}
-.logo-text {
-    position: absolute;
-    top: 20%;
-    left: 39%;
 }
 .logo-text {
     color: #3687C4;
@@ -109,6 +111,7 @@ body {
 }
 .link:after {
     content: url(/images/divide@1X.png);
+    height: 87px;
     margin-left: 30px;
 }
 .search {
@@ -141,7 +144,7 @@ body {
 .title-slider-wrapper {
     position: absolute;
     top: 247px;
-    left: 617px;
+    right: 420px;
     width: 964px;
     height: 515px;
 }
@@ -238,12 +241,12 @@ h3 {
     grid-row: 1 / 3;
     grid-column: 1 / 2;
 }
-input::-webkit-input-placeholder {
+input:-webkit-input-placeholder {
     color:#6D6E71;
     font-size: 15px;
     font-family: OpenSans-Light, AdobeArabic-Regular;
 }
-input::-moz-placeholder {
+input:-moz-placeholder {
     color:#6D6E71;
     font-size: 15px;
     font-family: OpenSans-Light, AdobeArabic-Regular;
@@ -252,4 +255,52 @@ input:-ms-input-placeholder {
     color:#6D6E71;
     font-size: 15px;
     font-family: OpenSans-Light, AdobeArabic-Regular;
+}
+
+@media screen and (max-width: 1345px) {
+    .main {
+        background-image: url(images/tablet_back.png);
+        background-repeat: no-repeat;
+        width: 1345px;
+        height: 736px;
+    }
+    .slider, .link, .stroke, .contact {
+        display: none;
+    }
+    .title-slider-wrapper {
+        right: 95px;
+        height: 200px;
+    }
+    .main-text {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about, .why {
+        grid-template-rows: 35% auto;
+        grid-template-columns: 15% auto;
+        width: 70%;
+        margin: 2% 4%;
+    }
+    .logo-wrapper {
+        background-image: url(/images/tablet_logo.png);
+        width: 153px;
+        height: 87px;
+    }
+    header {
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    .header {
+        padding: 0px;
+    }
+    .search {
+        position: absolute;
+        right: 20px;
+    }
+    .burger {
+        display: initial;
+        position: absolute;
+        left: 20px;
+    }
 }
