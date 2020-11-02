@@ -1,0 +1,23 @@
+.circle {
+    background-image: url(https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg);
+    width: 550px;
+    height: 550px;
+    background-size: cover;
+    border-radius: 50%;
+    border: 10px solid #672934;
+}
+.circle-clip-path {
+    background-image: url(https://i.ytimg.com/vi/GAHU8G7CSiw/maxresdefault.jpg);
+    width: 550px;
+    height: 550px;
+    background-size: cover;
+    clip-path: circle(50%);
+    -webkit-mask-image: url(images/face-mask-mask-svgrepo-com.svg);
+}
+.figure {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT91LloNarSMu8kkr9yKXAWMvjiwmcRTaov0Q&usqp=CAU);
+    width: 800px;
+    height: 400px;
+    background-size: cover;
+    clip-path: polygon(100% 0, 61% 0, 51% 18%, 42% 3%, 46% 13%, 37% 11%, 49% 20%, 41% 25%, 35% 20%, 28% 19%, 27% 21%, 25% 27%, 27% 34%, 30% 40%, 33% 47%, 35% 51%, 39% 52%, 39% 58%, 43% 63%, 49% 86%, 46% 100%, 51% 88%, 58% 100%, 100% 100%);
+}
