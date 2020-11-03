@@ -5,7 +5,11 @@ body {
 #tableHead {
     text-transform: uppercase;
 }
-#name {
+.table-title {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+#tableBody tr td:first-child {
     text-transform: capitalize;
 }
 #tableHead, #tableBody tr:nth-child(n+1) {
