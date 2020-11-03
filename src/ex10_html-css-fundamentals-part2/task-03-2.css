@@ -1,0 +1,27 @@
+body {
+    font-family: sans-serif;
+    color: #6d768a;
+}
+#tableHead {
+    text-transform: uppercase;
+}
+.table-title {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+#tableBody tr td:first-child {
+    text-transform: capitalize;
+}
+#tableHead, #tableBody tr:nth-child(n+1) {
+    background-color: #e3eaf3;
+}
+#tableBody tr:nth-child(2n+1) {
+    background-color: #f2f6fa;
+}
+#tableBody td {
+    padding: 20px 10px;
+}
+#tableBody tr:hover {
+    background-color: #c0c8d1;
+    cursor: pointer;
+}
