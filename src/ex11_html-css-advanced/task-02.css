@@ -24,8 +24,7 @@
 .input-text:placeholder-shown + .input-label {
   visibility: hidden;
 }
-.input-text:not(:placeholder-shown) + .input-label,
-.input-text:focus:not(:placeholder-shown) + .input-label {
+.input-text:not(:placeholder-shown) + .input-label {
     visibility: visible;
     opacity: 1;
     font-family: sans-serif;
