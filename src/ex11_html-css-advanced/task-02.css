@@ -22,7 +22,7 @@
     font-size: 12px;
 }
 .input-text:placeholder-shown + .input-label {
-  visibility: hidden;
+    visibility: hidden;
 }
 .input-text:not(:placeholder-shown) + .input-label {
     visibility: visible;
