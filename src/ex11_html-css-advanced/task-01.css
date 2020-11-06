@@ -93,23 +93,22 @@
     width: 200px;
     height: 200px;
     margin: 50px;
+    background: linear-gradient(to bottom,#63A69F, rgb(102, 51, 170));
     animation: infinity-animation 15s linear infinite;
 }
 @keyframes infinity-animation {
     0% {
         border-radius: 50%;
-        background: linear-gradient(35deg, #ccffff, #ffcccc);
     }
     16% {
         border-radius: 0%;
-        background: #ffcccc;
         transform: skew(0, 0);
     }
     33% {
         border-radius: 0%;
-        background: linear-gradient(35deg, #fffeb0, #fac2c2);
+        box-shadow: 0 -200px 100px -100px rgb(233, 14, 14) inset;
     }
-    49% {
+    50% {
         border-radius: 0%;
         transform: scale(1.2, 1.2) skew(20deg, 20deg);
     }
@@ -120,10 +119,9 @@
     82% {
         border-radius: 0%;
         transform: rotate(0);
-        background: linear-gradient(35deg, #eec6e4, #9ee3ec);
+        box-shadow: 0 -200px 70px -120px yellowgreen inset;
     }
     100% {
         border-radius: 50%;
-        background: #9ee3ec;
     }
 }
