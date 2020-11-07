@@ -23,8 +23,8 @@ body {
     justify-content: flex-end;
 }
 .burger-menu {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
     margin: 0px 10px;
 }
 .burger-menu:hover, .button-new-list:hover, .arrow:hover {
@@ -32,7 +32,6 @@ body {
 }
 .title {
     font-size: 28px;
-    line-height: 33px;
 }
 .button-new-list {
     background: #FFFFFF;
@@ -77,5 +76,5 @@ body {
     font-size: 18px;
 }
 main {
-    height: calc(100vh - 110px);
+    height: calc(100vh - 112px);
 }
