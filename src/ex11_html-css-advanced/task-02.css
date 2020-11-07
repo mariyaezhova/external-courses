@@ -1,0 +1,38 @@
+.input {
+    position: relative;
+}
+.input-text {
+    display: block;
+    margin: 0;
+    width: 25%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 40px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+.input-text:focus {
+    outline: none;
+}
+.input-label {
+    position: absolute;
+    opacity: 0;
+    bottom: 40px;
+    left: 10px;
+    font-size: 12px;
+}
+.input-text:placeholder-shown + .input-label {
+    visibility: hidden;
+}
+.input-text:not(:placeholder-shown) + .input-label {
+    visibility: visible;
+    opacity: 1;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: rgb(0, 153, 255);
+    transform: translateY(-5px);
+    transition: 1s;
+}
+.input-text:not(:focus) + .input-label {
+    color: rgb(185, 185, 185);
+}
