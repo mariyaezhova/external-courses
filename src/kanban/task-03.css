@@ -7,18 +7,17 @@ body {
 .header, .footer {
     background: #0067A3;
     display: flex;
+    justify-content: space-between;
 }
 .header {
     padding: 5px 0px;
 }
 .footer {
-    justify-content: space-around;
-    padding: 16.5px 0px;
+    padding: 17px 20px 17px 60px;
 }
 .left-header, .right-header {
     display: flex;
     align-items: center;
-    width: 50%;
 }
 .right-header {
     justify-content: flex-end;
@@ -28,6 +27,9 @@ body {
     height: 45px;
     margin: 0px 10px;
 }
+.burger-menu:hover, .button-new-list:hover, .arrow:hover {
+    cursor: pointer;
+}
 .title {
     font-size: 28px;
     line-height: 33px;
@@ -35,13 +37,13 @@ body {
 .button-new-list {
     background: #FFFFFF;
     border-radius: 5px;
-    padding: 5px 20px 5px 9px;
+    padding: 5px 20px 5px 10px;
     font-size: 18px;
     line-height: 21px;
     color: #000000;
     display: flex;
 }
-.add {
+.add-icon {
     width: 22px;
     height: 22px;
     margin-right: 10px;
@@ -65,15 +67,14 @@ body {
     height: 7.5px;
     margin: 0px 5px;
 }
-.text-footer-left, .text-footer-center, .text-footer-right {
+.left-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 30%
+}
+.text-footer {
     display: inline-block;
     font-size: 18px;
-}
-.text-footer-left {
-    padding-left: 5%;
-}
-.text-footer-right {
-    padding-left: 40%;
 }
 main {
     height: calc(100vh - 110px);
