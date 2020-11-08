@@ -1,0 +1,80 @@
+@import 'task-03-reset.css';
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+}
+.header, .footer {
+    background: #0067A3;
+    display: flex;
+    justify-content: space-between;
+}
+.header {
+    padding: 5px 0px;
+}
+.footer {
+    padding: 17px 20px 17px 60px;
+}
+.left-header, .right-header {
+    display: flex;
+    align-items: center;
+}
+.right-header {
+    justify-content: flex-end;
+}
+.burger-menu {
+    width: 46px;
+    height: 46px;
+    margin: 0px 10px;
+}
+.burger-menu:hover, .button-new-list:hover, .arrow:hover {
+    cursor: pointer;
+}
+.title {
+    font-size: 28px;
+}
+.button-new-list {
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 20px 5px 10px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    display: flex;
+}
+.add-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 50px;
+}
+.profile {
+    width: 26px;
+    height: 33px;
+}
+.arrow {
+    width: 12px;
+    height: 7.5px;
+    margin: 0px 5px;
+}
+.left-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 30%
+}
+.text-footer {
+    display: inline-block;
+    font-size: 18px;
+}
+main {
+    height: calc(100vh - 112px);
+}
