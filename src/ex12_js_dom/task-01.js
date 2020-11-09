@@ -17,11 +17,9 @@ function createSmoothTransition() {
     currentPhoto.src = arrayPhotos[indexPhoto];
     currentPhoto.className = 'photo-showed';
     
-    function changeImageClass() {
+    setTimeout(() => {
         currentPhoto.className = 'photo';
-    }
-
-    setTimeout(changeImageClass, 500);
+    }, 500);
 }
 
 prevButton.onclick = function() {
