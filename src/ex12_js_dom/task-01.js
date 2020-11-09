@@ -3,8 +3,7 @@ const numberOfPhotos = 10;
 
 // loop to fill array by jpg format photos
 for (let i = 1; i <= numberOfPhotos; i++ ) {
-    let photo = 'asset/' + i + '.jpg';
-    arrayPhotos.push(photo);
+    arrayPhotos.push(`asset/${i}.jpg`);
 }
 
 const prevButton = document.querySelector('.prev-button');
@@ -14,8 +13,15 @@ let indexPhoto = 0;
 
 currentPhoto.src = arrayPhotos[indexPhoto];
 
-function changeImageClass() {
-    currentPhoto.className = 'photo';
+function createSmoothTransition() {
+    currentPhoto.src = arrayPhotos[indexPhoto];
+    currentPhoto.className = 'photo-showed';
+    
+    function changeImageClass() {
+        currentPhoto.className = 'photo';
+    }
+
+    setTimeout(changeImageClass, 500);
 }
 
 prevButton.onclick = function() {
@@ -23,9 +29,8 @@ prevButton.onclick = function() {
     if (indexPhoto < 0) {
         indexPhoto = arrayPhotos.length - 1;
     }
-    currentPhoto.src = arrayPhotos[indexPhoto];
-    currentPhoto.className = 'photo-showed';
-    setTimeout(changeImageClass, 500);
+
+    createSmoothTransition();
 }
 
 nextButton.onclick = function() {
@@ -33,7 +38,6 @@ nextButton.onclick = function() {
     if (indexPhoto > arrayPhotos.length - 1) {
         indexPhoto = 0;
     }
-    currentPhoto.src = arrayPhotos[indexPhoto];
-    currentPhoto.className = 'photo-showed';
-    setTimeout(changeImageClass, 500);
+
+    createSmoothTransition();
 }
