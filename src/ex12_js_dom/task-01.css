@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+}
+
+main {
+    background-color: #ede3d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.photo-slider {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 30px 30px rgba(0,0,0,0.25), 0px -30px 30px rgba(0,0,0,0.25);
+}
+
+.photo-slider .photo {
+    width: 80%;
+}
+.photo-slider .photo-showed {
+    width: 80%;
+    animation: fade 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0.3}
+    to {opacity: 1}
+}
+
+.prev-button, .next-button {
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #cec3b2;
+}
+
+.fa-chevron-right, .fa-chevron-left {
+    font-size: 25px;
+    color: #fdfcfb;
+}
+
+.prev-button:hover, .next-button:hover {
+    cursor: pointer;
+    background-color: #cbbfae;
+}
+
+.prev-button:focus, .next-button:focus {
+    outline: 1px solid #cec3b2;
+    background-color: #cbbfae;
+}
