@@ -1,32 +1,35 @@
 const profileButton = document.querySelector('.profile-button');
 const arrow = document.querySelector('.arrow-down');
 const main = document.querySelector('.main');
-const menuItems = ['Your profile', 'Your tasks', 'Help', 'Settings', 'Sign out'];
+const menu = document.createElement('ul');
+
+const liElement1 = document.createElement('li');
+const liElement2 = document.createElement('li');
+const liElement3 = document.createElement('li');
+const liElement4 = document.createElement('li');
+const liElement5 = document.createElement('li');
+
+const hrElement1 = document.createElement('hr');
+const hrElement2 = document.createElement('hr');
+
+liElement1.innerText = 'Your profile';
+liElement2.innerText = 'Your tasks';
+liElement3.innerText = 'Help';
+liElement4.innerText = 'Settings';
+liElement5.innerText = 'Sign out';
+
+[liElement1, liElement2, liElement3, liElement4, liElement5].forEach((element) => element.classList.add('menu-item'));
+[hrElement1, hrElement2].forEach(element => element.classList.add('menu-stroke'));
+menu.classList.add('pull-down-menu');
+[liElement1, liElement2, hrElement1, liElement3, liElement4, hrElement2, liElement5].forEach((element) => menu.appendChild(element));
 
 function showMenu() {
-    const menu = document.createElement('ul');
-
     main.append(menu);
-    menu.classList.add('pull-down-menu');
     arrow.classList.add('arrow-up');
-
-    for (i = 0; i <= menuItems.length - 1; i++) {
-        const liElement = document.createElement('li');
-        const hrElement = document.createElement('hr');
-
-        liElement.classList.add('menu-item');
-        hrElement.classList.add('menu-stroke');
-        liElement.innerHTML = menuItems[i];
-        menu.append(liElement);
-
-        if (i % 2 !== 0) {
-            menu.append(hrElement);
-        }
-    }
 }
 
 function hideMenu() {
-    document.querySelector('.pull-down-menu').remove();
+    menu.remove();
     arrow.classList.remove('arrow-up');
 }
 
@@ -39,8 +42,8 @@ profileButton.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (event) => {
-    const isClickInsideProfileButton = document.querySelector('.profile-button').contains(event.target);
-    const isClickInsideMenu = document.querySelector('.pull-down-menu').contains(event.target);
+    const isClickInsideProfileButton = profileButton.contains(event.target);
+    const isClickInsideMenu = menu.contains(event.target);
 
     if (!isClickInsideProfileButton && !isClickInsideMenu) {
         hideMenu();
