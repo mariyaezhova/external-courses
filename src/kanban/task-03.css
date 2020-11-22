@@ -28,7 +28,7 @@ body {
     height: 46px;
     margin: 0px 10px;
 }
-.header__burger-menu:hover, .header__new-list-button:hover, .header__profile-button:hover, .header__add-new-list-button:hover, .tasks-block__dots:hover, .tasks-block__empty-item:hover {
+.header__burger-menu:hover, .header__new-list-button:hover, .header__profile-button:hover, .header__add-new-list-button:hover, .tasks-block__dots:hover, .tasks-block__empty-item-active:hover {
     cursor: pointer;
 }
 .tasks-block__add-task-button:disabled {
@@ -163,24 +163,15 @@ body {
 .tasks-block__task-not-active:disabled {
     background: white;
 }
-.tasks-block__empty-item {
+.tasks-block__empty-item-active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5px;
-    color: #5E6C84;
-    padding: 5px 5px 5px 5px;
-    background: white;
-}
-.tasks-block__empty-item-active {
     color: white;
     background: #479bcd;
     border: 1px solid white;
     border-radius: 0;
-}
-.tasks-block__placeholder {
-    display: inline-block;
-    font-size: 16px;
+    padding: 5px 5px 5px 5px;
 }
 .tasks-block__select-list {
     border-radius: 5px;
@@ -198,12 +189,9 @@ body {
     background: #0067A3;
     cursor: pointer;
 }
-.tasks-block__task-arrow-down {
-    fill: black;
+.tasks-block__task-arrow-up {
     width: 12px;
     height: 7.5px;
-}
-.tasks-block__task-arrow-up {
     transform: rotate(180deg);
     fill: white;
 }

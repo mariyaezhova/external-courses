@@ -195,43 +195,36 @@ taskBlocksOrder.forEach(key => {
         const prevBlockName = taskBlocksOrder[blockOrder - 1];
 
         selectElement.className = 'tasks-block__select-list';
-        emptyElement.innerHTML = '<span class="tasks-block__placeholder"">Please select a task</span><svg class="tasks-block__task-arrow-down"><use xlink:href="#arrow"></use></svg>'
-        emptyElement.classList.add('tasks-block__empty-item');
+        emptyElement.innerHTML = '<span>Please select a task</span><svg class="tasks-block__task-arrow-up"><use xlink:href="#arrow"></use></svg>'
         blocks[key].appendChild(selectElement);
         selectElement.appendChild(emptyElement);
         selectElement.focus();
 
-        const taskArrow = document.querySelector('.tasks-block__task-arrow-down');
+        tasks[prevBlockName].forEach(({ title, id }) => {
+            const liElement = document.createElement('li');
+
+            emptyElement.classList.add('tasks-block__empty-item-active');
+            liElement.classList.add('tasks-block__select-item');
+            liElement.innerText = title;
+            liElement.value = id;
+            selectElement.appendChild(liElement);
+        });
 
         selectElement.addEventListener('click', ({ target: { innerText, value } }) => {
-            if (!taskArrow.classList.contains('tasks-block__task-arrow-up')) {
-                tasks[prevBlockName].forEach(({ title, id }) => {
-                    const liElement = document.createElement('li');
+            const taskObject = { id: value, title: innerText };
+            const deleteIndex = tasks[prevBlockName].findIndex(({ id }) => id === value);
 
-                    emptyElement.classList.add('tasks-block__empty-item-active');
-                    liElement.classList.add('tasks-block__select-item');
-                    liElement.innerText = title;
-                    liElement.value = id;
-                    selectElement.appendChild(liElement);
-                });
-                taskArrow.classList.add('tasks-block__task-arrow-up');
-            } else {
-                const taskObject = { id: value, title: innerText };
-                const deleteIndex = tasks[prevBlockName].findIndex(({ id }) => id === value);
+            if (innerText === 'Please select a task') {
+                selectElement.remove();
+                addButtons[key].disabled = false;
 
-                if (innerText === 'Please select a task') {
-                    selectElement.remove();
-                    addButtons[key].disabled = false;
-
-                    return;
-                }
-
-                emptyElement.innerText = innerText;
-                tasks[key].push(taskObject);
-                tasks[prevBlockName].splice(deleteIndex, 1);
-                taskArrow.classList.remove('tasks-block__task-arrow-up');
-                renderTasks();
+                return;
             }
+
+            emptyElement.innerText = innerText;
+            tasks[key].push(taskObject);
+            tasks[prevBlockName].splice(deleteIndex, 1);
+            renderTasks();
         });
         addButtons[key].disabled = true;
     });
