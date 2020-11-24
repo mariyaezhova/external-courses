@@ -1,7 +1,7 @@
 'use strict';
 function Hangman(word) {
     this.guessWord = word;
-    this.guessedWordFromUser = this.guessWord.split('').map(() => {return '_'});
+    this.guessedWordFromUser = this.guessWord.split('').map(() => '_');
     this.errorsLeft = 6;
     this.wrongSymbols = [];
 
@@ -59,7 +59,7 @@ function Hangman(word) {
 
     this.startAgain = (newWord) => {
         this.guessWord = newWord;
-        this.guessedWordFromUser = this.guessWord.split('').map(() => {return '_'});
+        this.guessedWordFromUser = this.guessWord.split('').map(() => '_');
         this.errorsLeft = 6;
         this.wrongSymbols = [];
 

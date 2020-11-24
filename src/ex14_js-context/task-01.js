@@ -43,15 +43,12 @@ function Calculator() {
     };
 
     this.fetchData = (func) => {
-        setTimeout(() => func.call(this, 500), 2000);
+        setTimeout(func.bind(this, 500), 2000);
 
         return this;
     };
 }
 
 const calc = new Calculator();
-const setState = calc.setState;
-
-calc.fetchData(setState);
 
 module.exports = calc;
