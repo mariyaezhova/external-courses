@@ -6,7 +6,8 @@ function Sweet(name, production, weight, shape) {
   this.shape = shape;
 }
 
-function ChocolateBar(chocolateType) {
+function ChocolateBar(name, production, weight, shape, chocolateType) {
+  Sweet.call(this, name, production, weight, shape);
   this.type = 'Chocolate';
   this.chocolateType = chocolateType;
   this.caloric = function() {
@@ -18,14 +19,16 @@ function ChocolateBar(chocolateType) {
   };
 }
 
-function ChocolateCandy() {
+function ChocolateCandy(name, production, weight, shape) {
+  Sweet.call(this, name, production, weight, shape);
   this.type = 'Chocolate candy';
   this.caloric = function() {    
     return this.weight/100 * 535;
   };
 }
 
-function Lollipop(isStick) {
+function Lollipop(name, production, weight, shape, isStick) {
+  Sweet.call(this, name, production, weight, shape);
   this.type = 'Lollipop';
   this.isStick = isStick;
   this.caloric = function() {    
@@ -33,7 +36,8 @@ function Lollipop(isStick) {
   };
 }
 
-function Wafer(waferNumber) {
+function Wafer(name, production, weight, shape, waferNumber) {
+  Sweet.call(this, name, production, weight, shape);
   this.type = 'Wafer';
   this.waferNumber = waferNumber;
   this.caloric = function() {    
@@ -43,19 +47,16 @@ function Wafer(waferNumber) {
 
 function Gift(...sweet) {
   this.sweet = sweet;
-  this.showContent = () => {
+  this.showContent = function() {
     return this.sweet;
   };
   this.getWeight = function() {
-    let weight = 0;
+    const weight = this.sweet.reduce((weight, elem) => { return weight + elem.weight }, 0);
 
-    this.sweet.map(elem => { weight = weight + elem.weight; });
     return console.log(`Gift's weight is ${weight} g`);
   };
   this.getCaloric = function() {
-    let caloric = 0;
-
-    this.sweet.map(elem => { caloric = caloric + elem.caloric(); });
+    const caloric = this.sweet.reduce((caloric, elem) => { return caloric + elem.caloric() }, 0);
 
     return console.log(`Gift's caloric is ${caloric} cal`);
   };
@@ -67,16 +68,13 @@ function Gift(...sweet) {
   };
 }
 
-ChocolateBar.prototype = new Sweet('Alyonka', 'Red factory', 100, 'square');
+ChocolateBar.prototype = Object.create(Sweet.prototype);
+ChocolateCandy.prototype = Object.create(Sweet.prototype);
+Lollipop.prototype = Object.create(Sweet.prototype);
+Wafer.prototype = Object.create(Sweet.prototype);
 
-const alyonkaChoсolateDark = new ChocolateBar('Dark');
-const alyonkaChoсolateMilk = new ChocolateBar('Milk');
-
-ChocolateCandy.prototype = new Sweet('Gummy in forest', 'Victory factory', 50, 'square');
-
-const gummyInForest = new ChocolateCandy();
-
-Lollipop.prototype = new Sweet('Chupa Chups', 'Chupa Chups', 100, 'round');
-
-const chupaChups = new Lollipop(true);
+const alyonkaChoсolateDark = new ChocolateBar('Alyonka', 'Red factory', 100, 'square', 'Dark');
+const alyonkaChoсolateMilk = new ChocolateBar('Alyonka', 'Red factory', 100, 'square', 'Milk');
+const gummyInForest = new ChocolateCandy('Gummy in forest', 'Victory factory', 50, 'square');
+const chupaChups = new Lollipop('Chupa Chups', 'Chupa Chups', 100, 'round', true);
 const gift = new Gift(alyonkaChoсolateDark, alyonkaChoсolateMilk, gummyInForest, chupaChups);
