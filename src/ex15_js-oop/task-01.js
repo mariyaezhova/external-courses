@@ -51,12 +51,12 @@ function Gift(...sweet) {
     return this.sweet;
   };
   this.getWeight = function() {
-    const weight = this.sweet.reduce((weight, elem) => { return weight + elem.weight }, 0);
+    const weight = this.sweet.reduce((weight, elem) => weight + elem.weight, 0);
 
     return console.log(`Gift's weight is ${weight} g`);
   };
   this.getCaloric = function() {
-    const caloric = this.sweet.reduce((caloric, elem) => { return caloric + elem.caloric() }, 0);
+    const caloric = this.sweet.reduce((caloric, elem) => caloric + elem.caloric(), 0);
 
     return console.log(`Gift's caloric is ${caloric} cal`);
   };

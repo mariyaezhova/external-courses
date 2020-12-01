@@ -4,9 +4,7 @@ class Flat {
     this.flatNumber = flatNumber;
   }
   getPower(...rooms) {
-    const devicesArr = rooms.reduce((devicesArr, elem) => { 
-      return devicesArr.concat(elem.devices); 
-    }, []);
+    const devicesArr = rooms.reduce((devicesArr, elem) => devicesArr.concat(elem.devices), []);
 
     const power = devicesArr.reduce((power, elem) => {
       if (elem.isTurnOn === true) {
@@ -19,9 +17,7 @@ class Flat {
     return console.log(`Power in the ${this.flatNumber} flat is ${power.toFixed(2)} kw/h`);
   }
   findDevice(name, ...rooms) {
-    const devicesArr = rooms.reduce((devicesArr, elem) => { 
-      return devicesArr.concat(elem.devices); 
-    }, []);
+    const devicesArr = rooms.reduce((devicesArr, elem) => devicesArr.concat(elem.devices), []);
 
     return devicesArr.filter(elem => elem.nameDevice === name );
   }
