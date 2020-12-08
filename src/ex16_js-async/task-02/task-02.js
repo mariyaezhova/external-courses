@@ -19,15 +19,15 @@ const serverRequest = () => {
 };
 
 const debounce = (func, ms) => {
-  return function () {
+  return function() {
     let previousCall = this.lastCall;
-
+    
     this.lastCall = Date.now();
     if (previousCall && ((this.lastCall - previousCall) <= ms)) {
       clearTimeout(this.lastCallTimer);
     }
 
-    this.lastCallTimer = setTimeout(() => func(), ms);
+    this.lastCallTimer = setTimeout(func.bind(this), ms);
   }
 }
 
