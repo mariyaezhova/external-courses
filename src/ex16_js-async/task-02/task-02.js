@@ -19,7 +19,7 @@ const serverRequest = () => {
 };
 
 const debounce = (func, ms) => {
-  return function () {
+  return function (...args) {
     let previousCall = this.lastCall;
 
     this.lastCall = Date.now();
@@ -27,7 +27,7 @@ const debounce = (func, ms) => {
       clearTimeout(this.lastCallTimer);
     }
 
-    this.lastCallTimer = setTimeout(func, ms);
+    this.lastCallTimer = setTimeout(() => func(...args), ms);
   }
 }
 
