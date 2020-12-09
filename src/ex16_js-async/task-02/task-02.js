@@ -19,16 +19,18 @@ const serverRequest = () => {
 };
 
 const debounce = (func, ms) => {
-  return function() {
+  return function () {
     let previousCall = this.lastCall;
-    
+
     this.lastCall = Date.now();
     if (previousCall && ((this.lastCall - previousCall) <= ms)) {
       clearTimeout(this.lastCallTimer);
     }
 
-    this.lastCallTimer = setTimeout(func.bind(this), ms);
+    this.lastCallTimer = setTimeout(func, ms);
   }
 }
 
-inputEl.addEventListener('input', debounce(serverRequest, 2000));
+const loggerFunc = debounce(serverRequest, 2000);
+
+inputEl.addEventListener('input', loggerFunc);
