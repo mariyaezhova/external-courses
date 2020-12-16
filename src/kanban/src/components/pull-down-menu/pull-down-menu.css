@@ -1,0 +1,38 @@
+.header__pull-down-menu {
+  position: absolute;
+  border: 1px solid white;
+  border-radius: 5px;
+  right: 0;
+  font-size: 14px;
+  background: #479bcd;
+}
+.header__pull-down-menu-item {
+  padding: 5px 15px;
+}
+.header__pull-down-menu-item:first-child {
+  margin-top: 5px;
+}
+.header__pull-down-menu-item:last-child {
+  margin-bottom: 5px;
+}
+.header__pull-down-menu-item:hover {
+  background: #0067A3;
+  cursor: pointer;
+}
+.header__menu-stroke {
+  margin: 5px 0px;
+}
+.header__pull-down-menu:before, .header__pull-down-menu:after {
+  content: ''; 
+  position: absolute;
+  right: 40%;
+  top: -19.5px;
+  transform: translateX(50%);
+  border: 12.5px solid transparent;
+  border-bottom: 6px solid  #FFFFFF;
+}
+.header__pull-down-menu:before {
+  top: -18.5px;
+  border-bottom: 6px solid  #479bcd;
+  z-index: 1;
+}

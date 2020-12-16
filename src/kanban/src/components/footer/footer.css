@@ -1,0 +1,15 @@
+.footer {
+  background: #0067A3;
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 20px 17px 60px;
+}
+.footer__right-part {
+  display: flex;
+  justify-content: space-between;
+  width: 30%
+}
+.footer__text {
+  display: inline-block;
+  font-size: 18px;
+}

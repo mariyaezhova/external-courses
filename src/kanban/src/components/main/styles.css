@@ -1,0 +1,14 @@
+@import "./styles-reset.css";
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    min-height: calc(100vh - 112px);
+    background: #0079BF;
+    position: relative;
+}
