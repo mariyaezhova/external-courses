@@ -8,6 +8,8 @@
 - InProgress: задачи в стадии выполнения. Задачи переносятся из панели "Ready";
 - Finished: список выполненных задач. Задачи переносятся из панели "InProgress".
 
+![Иллюстрация к проекту](https://github.com/mariyaezhova/images/blob/main/Kanban.png)
+
 ## Необходимое ПО
 
 -   [NodeJS (LTS)](https://nodejs.org/en/);
