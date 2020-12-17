@@ -1,3 +1,4 @@
+import '../pull-down-menu/pull-down-menu.css';
 import DomElement from '../dom-element/DomElement.js';
 
 export default class PullDownMenu {

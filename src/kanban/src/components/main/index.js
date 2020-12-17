@@ -1,6 +1,4 @@
 import './styles.css';
-import '../board/board.css';
-import '../pull-down-menu/pull-down-menu.css';
 import DomElement from '../dom-element/DomElement.js';
 import { header } from '../header/header.js';
 import { footer } from '../footer/footer.js';

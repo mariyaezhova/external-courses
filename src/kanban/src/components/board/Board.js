@@ -1,3 +1,4 @@
+import './board.css';
 import DomElement from '../dom-element/DomElement.js';
 
 export default class Board {
@@ -89,7 +90,7 @@ export default class Board {
           this.addButton.disabled = false;
           this.addTask();
 
-          fetch("/tasks").then((res) => res.json())
+          fetch(`/board/${this.id - 1}/tasks`).then((res) => res.json())
             .then((res) => {
               return res.find((elem) => elem.id === value);
             })
