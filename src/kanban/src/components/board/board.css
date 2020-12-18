@@ -1,0 +1,107 @@
+.tasks-block__dots:hover, .tasks-block__empty-item-active:hover {
+  cursor: pointer;
+}
+.tasks-block__add-task-button:disabled {
+  cursor: default;
+  color: #a5b5d1;
+}
+.tasks-block__add-task-button:hover:not(:disabled) {
+  text-shadow: #479bcd 0 0 10px;
+  transform: scale(1.1);
+  transition: 1s;
+  cursor: pointer;
+}
+.tasks-block {
+  color: black;
+  width: 22%;
+  height: fit-content;
+  background:#EBECF0;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+.tasks-block__tasks-container {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-color: #CBCBCB white;
+  scrollbar-width: 12px;
+  padding-right: 5px;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: white;
+  border-radius: 9em;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #CBCBCB;
+  border-radius: 9em;
+}
+.tasks-block__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.tasks-block__dots {
+  width: 16px;
+  height: 5px;
+}
+.tasks-block__add-task-button {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #5E6C84;
+  transition: 1s;
+}
+.plus-symbol {
+  width: 14px;
+  height: 14px;
+  fill: #5E6C84;
+}
+.tasks-block__task {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  background: white;
+}
+.tasks-block__task-not-active {
+  color: #5E6C84;
+}
+.tasks-block__task-not-active:disabled {
+  background: white;
+}
+.tasks-block__empty-item-active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: #479bcd;
+  border: 1px solid white;
+  border-radius: 0;
+  padding: 5px 5px 5px 5px;
+}
+.tasks-block__select-list {
+  border-radius: 5px;
+  font-size: 14px;
+  background: #479bcd;
+}
+.tasks-block__select-item {
+  padding: 5px 15px;
+  color: white;
+  background: #479bcd;
+  border-radius: 0;
+  border: 1px solid white;
+}
+.tasks-block__select-item:hover {
+  background: #0067A3;
+  cursor: pointer;
+}
+.tasks-block__task-arrow-up {
+  width: 12px;
+  height: 7.5px;
+  transform: rotate(180deg);
+  fill: white;
+}
