@@ -6,9 +6,9 @@ export const footer = new DomElement({
   className: 'footer',
   html: `
   <div class="footer__right-part">
-    <span class="footer__text">Active tasks: &lt;N&gt;</span>
-    <span class="footer__text">Finished tasks: &lt;M&gt;</span>
+    <span class="footer__text footer__text-active-tasks">Active tasks: &lt;N&gt;</span>
+    <span class="footer__text footer__text-finished-tasks">Finished tasks: &lt;M&gt;</span>
   </div>
-  <span class="footer__text">Kanban board by &lt;NAME&gt;, &lt;YEAR&gt;</span>
+  <span class="footer__text">Kanban board by Mariya Sonina, 2020</span>
   `,
 })

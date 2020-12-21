@@ -1,5 +1,5 @@
 export default class DomElement {
-  constructor({ type, className = '', html = '', value = '' }) {
+  constructor({ type, className = '', html = '', value = ''}) {
     this.element = document.createElement(type);
     this.element.innerHTML = html;
     this.element.value = value;
