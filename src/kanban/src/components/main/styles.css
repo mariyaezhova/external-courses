@@ -4,7 +4,6 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
 }
-
 .main {
     display: flex;
     justify-content: space-around;
@@ -12,7 +11,6 @@ body {
     background: #0079BF;
     overflow: auto;
 }
-
 .main-text {
     align-self: center;
     font-size: 20px;

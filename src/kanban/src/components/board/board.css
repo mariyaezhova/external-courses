@@ -8,7 +8,7 @@
 .tasks-block__add-task-button:hover:not(:disabled) {
   text-shadow: #479bcd 0 0 10px;
   transform: scale(1.1);
-  transition: 1s;
+  transition: 0.5s;
   cursor: pointer;
 }
 .tasks-block {
@@ -52,6 +52,7 @@
   border-radius: 9em;
 }
 .tasks-block__header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;

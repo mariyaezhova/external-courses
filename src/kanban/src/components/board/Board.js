@@ -9,7 +9,7 @@ export default class Board {
 
     this.element = new DomElement({
       type: 'section',
-      className: 'tasks-block',
+      className: `tasks-block tasks-block__${name}`,
       html: `
         <header class="tasks-block__header">
           <input class="tasks-block__title" type="text" disabled="true" value="${this.name}">
@@ -32,6 +32,7 @@ export default class Board {
     this.addButton = this.element.querySelector('.tasks-block__add-task-button');
     this.main = document.querySelector('.main');
     this.boardContainer = this.element.querySelector('.tasks-block__tasks-container');
+    this.boardHeader = this.element.querySelector('.tasks-block__header');
     this.dotsButton = this.element.querySelector('.tasks-block__dots');
     this.footerActiveTaskEl = document.querySelector('.footer__text-active-tasks');
     this.footerFinishedTaskEl = document.querySelector('.footer__text-finished-tasks');
@@ -42,7 +43,7 @@ export default class Board {
       } else {
         const menuItems = ['Delete list', 'Add new card'];
 
-        this.boardMenu = new PullDownMenu(menuItems, this.boardContainer, 'board__pull-down-menu');
+        this.boardMenu = new PullDownMenu(menuItems, this.boardHeader, 'board__pull-down-menu');
         this.boardMenu.showMenu();
         this.element.querySelectorAll('.pull-down-menu-item')
           .forEach((elem) => {
@@ -51,13 +52,13 @@ export default class Board {
             } else {
               this.addCardItem = elem;
             }
-          })
+          });
 
         this.addCardItem.addEventListener('click', () => {
           if (this.addButton.disabled !== true) {
             this.clickAddCard.call(this);
           }
-          
+
           this.boardMenu.hideMenu();
         });
 
@@ -65,7 +66,7 @@ export default class Board {
           this.element.remove();
           this.deleteBoard(this.id);
           this.deleteTasks(this.id);
-        })
+        });
 
         document.addEventListener('click', (event) => {
           this.isClickInsideBoardMenu = this.boardMenu.menu.element.contains(event.target);
@@ -74,7 +75,7 @@ export default class Board {
           if (!this.isClickInsideBoardMenu && !this.isClickOnDots) {
             this.boardMenu.hideMenu();
           }
-        })
+        });
       }
     });
 
@@ -108,7 +109,7 @@ export default class Board {
         }
 
         this.addButton.disabled = false;
-      })
+      });
     } else {
       this.selectElement = new DomElement({ type: 'ul', className: 'tasks-block__select-list' });
 
@@ -116,34 +117,42 @@ export default class Board {
         type: 'li',
         className: 'tasks-block__empty-item-active',
         html: `
-        <span>Please select a task</span>
-        <svg class="tasks-block__task-arrow-up">
-        <use xlink:href="#arrow"></use>
-        </svg>
+          <div>
+            <span>Please select a task</span>
+            <svg class="tasks-block__task-arrow-up">
+              <use xlink:href="#arrow"></use>
+            </svg>
+          </div>
         `
       });
 
-      this.emptyElement.appendToElement(this.selectElement.element)
+      this.emptyElement.appendToElement(this.selectElement.element);
       this.selectElement.appendToElement(this.boardContainer);
       this.renderTaskList();
 
-
       document.addEventListener('click', (event) => {
-        this.isClickInsideList = this.selectElement.element.contains(event.target);
-        this.isClickButton = this.addButton.contains(event.target);
+        const currentSelectList = document.querySelector('.tasks-block__select-list');
+        const currentBlockClassName = currentSelectList && currentSelectList.parentNode.parentNode.className;
 
-        if (this.addCardItem) {
-          this.isClickAddCardItem = this.addCardItem.contains(event.target);
+        if (currentBlockClassName && currentBlockClassName.indexOf(this.name) !== -1) {
+          this.isClickInsideList = this.selectElement.element.contains(event.target);
+          this.isClickButton = this.addButton.contains(event.target);
+
+          if (this.addCardItem) {
+            this.isClickAddCardItem = this.addCardItem.contains(event.target);
+          }
+
+          if (!this.isClickInsideList && !this.isClickButton && !this.isClickAddCardItem) {
+            this.selectElement.removeElement();
+            this.addButton.disabled = false;
+          }
         }
 
-        if (!this.isClickInsideList && !this.isClickButton && !this.isClickAddCardItem) {
-          this.selectElement.removeElement();
-          this.addButton.disabled = false;
-        }
       });
 
       this.selectElement.element.addEventListener('click', ({ target: { innerText, value } }) => {
         this.addButton.disabled = false;
+
         if (innerText === 'Please select a task') {
           this.selectElement.removeElement();
 
@@ -169,11 +178,10 @@ export default class Board {
             this.deleteTask(data.id);
             this.renderElements(data);
             this.deleteTaskFromPreviousBoard();
-          })
+          });
       });
-
     };
-  };
+  }
 
   getBoardParameters() {
     fetch('/boards')
@@ -182,6 +190,7 @@ export default class Board {
         this.boardOrder = res.findIndex((item, index) => `${item.title}` === this.name);
         this.board = res.find((item) => `${item.title}` === this.name);
         this.id = this.board.id;
+
         if (this.boardOrder !== 0) {
           this.previousBoardOrder = this.boardOrder - 1;
           this.previousBoard = res.find((item, index) => index === this.previousBoardOrder);
@@ -195,7 +204,7 @@ export default class Board {
           this.nextId = this.nextBoard.id;
           this.nextAddButton = document.querySelectorAll(`.tasks-block__add-task-button`)[`${this.nextBoardOrder}`];
         }
-      })
+      });
   }
 
   addTask() {
@@ -207,8 +216,8 @@ export default class Board {
       body: JSON.stringify({
         task: this.inputItem.element.value,
         boardId: this.id
-      }),
-    })
+      })
+    });
   }
 
   deleteTask(id) {
@@ -218,7 +227,7 @@ export default class Board {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ id })
-    })
+    });
   }
 
   deleteTasks(boardId) {
@@ -228,7 +237,8 @@ export default class Board {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ boardId })
-    })
+    });
+
     this.getNumberTasks();
   }
 
@@ -245,7 +255,7 @@ export default class Board {
               value: `${elem.id}`
             }).appendToElement(this.selectElement.element);
           })
-      })
+      });
   }
 
   renderTask({ task }) {
@@ -260,7 +270,8 @@ export default class Board {
             ${res.filter(elem => elem.boardId === this.id)
             .reduce((acc, res) => acc + this.renderTask(res), "")}
           `
-      })
+      });
+
     this.disableAddButtons();
   }
 
@@ -282,7 +293,7 @@ export default class Board {
         } else {
           this.nextAddButton.disabled = false;
         }
-      })
+      });
   }
 
   renderNumberActiveTasks(boardId) {
@@ -292,7 +303,7 @@ export default class Board {
         this.activeTasks = boardId
           .reduce((acc, elem1) => acc + res.filter((elem) => elem.boardId === elem1).length, 0);
         this.footerActiveTaskEl.innerText = `Active tasks: ${this.activeTasks}`;
-      })
+      });
   }
 
   renderNumberFinishedTasks(boardId) {
@@ -301,12 +312,13 @@ export default class Board {
       .then((res) => {
         this.finishedTasks = this.finishedTasks + res.filter((elem) => elem.boardId === boardId).length;
         this.footerFinishedTaskEl.innerText = `Finished tasks: ${this.finishedTasks}`;
-      })
+      });
   }
 
   getNumberTasks() {
     this.activeTasks = 0;
     this.finishedTasks = 0;
+
     fetch('/boards')
       .then((res) => res.json())
       .then((res) => {
@@ -316,7 +328,7 @@ export default class Board {
 
         this.renderNumberActiveTasks(activeBoardsArr);
         this.renderNumberFinishedTasks(finishedBoard.id);
-      })
+      });
   }
 
   deleteTaskFromPreviousBoard() {
@@ -327,7 +339,7 @@ export default class Board {
         this.deleteEl = elem;
         this.deleteEl.remove();
       }
-    })
+    });
   }
 
   deleteBoard(id) {
@@ -350,6 +362,7 @@ export default class Board {
 
         document.querySelectorAll('.tasks-block').forEach((elem, index) => {
           const button = elem.querySelector('.tasks-block__add-task-button');
+
           if (
             index === 0
             || document.querySelectorAll('.tasks-block__tasks-container')[index - 1].children.length !== 0
@@ -358,7 +371,7 @@ export default class Board {
           } else {
             button.disabled = true;
           }
-        })
-      })
+        });
+      });
   }
 }

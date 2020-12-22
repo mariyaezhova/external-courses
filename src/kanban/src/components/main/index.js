@@ -11,7 +11,6 @@ export const mainInnerText = new DomElement({
   className: 'main-text',
   html: `You don't have any tasks. Please add new list by clicking "Create new list" button.`
 })
-
 const menuItems = ['Your profile', 'Your tasks', 'Help', 'Settings', 'Sign out'];
 
 header.appendToElement(document.body);
@@ -50,16 +49,15 @@ fetch("/boards")
     }
 
     return res.map((el) => new Board({ name: el.title }))
-  }
-  )
-  .then((elems) =>
+  })
+  .then((elems) => {
     elems.forEach((item) => {
       main.element.appendChild(item.element);
       item.getBoardParameters();
       item.renderElements();
       item.getNumberTasks();
-    })
-  );
+    });
+  });
 
 const addNewListButton = document.querySelector('.header__add-new-list-button');
 
@@ -72,14 +70,15 @@ addNewListButton.addEventListener('click', () => {
     type: 'section',
     className: 'tasks-block',
     html: `
-    <header class="tasks-block__header-active">
-    <input class="tasks-block__title tasks-block__title-active" type="text" placeholder="Title">
-    <svg class="tasks-block__dots">
-    <use xlink:href="#dots"></use>
-    </svg>
-    </header>
+      <header class="tasks-block__header-active">
+        <input class="tasks-block__title tasks-block__title-active" type="text" placeholder="Title">
+        <svg class="tasks-block__dots">
+          <use xlink:href="#dots"></use>
+        </svg>
+      </header>
     `
   });
+
   main.element.prepend(boardHeader.element);
   
   const title = document.querySelector('.tasks-block__title-active');
@@ -100,22 +99,23 @@ addNewListButton.addEventListener('click', () => {
         },
         body: JSON.stringify({
           name: value
-        }),
+        })
       })
         .then((res) => res.json())
         .then((res) => {
           if (res.length > 4) {
             main.element.style.justifyContent = 'flex-start';
           }
-        })
+        });
 
-      const newBoard = new Board({ name: value })
+      const newBoard = new Board({ name: value });
 
       main.element.prepend(newBoard.element);
       newBoard.getBoardParameters();
       newBoard.getNumberTasks();
       newBoard.disableAddButtons();
     }
+    
     boardHeader.element.remove();
-  })
-})
+  });
+});

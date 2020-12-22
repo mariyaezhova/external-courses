@@ -35,8 +35,10 @@
   top: -19.5px;
   border-bottom: 6px solid #ffffff;
 }
-
 .board__pull-down-menu {
+  position: absolute;
+  right: 0;
+  top: 25px;
   color: white;
   border: 1px solid white;
   border-radius: 5px;
