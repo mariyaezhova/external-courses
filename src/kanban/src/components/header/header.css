@@ -2,8 +2,6 @@
   background: #0067A3;
   display: flex;
   justify-content: space-between;
-}
-.header {
   padding: 5px 0px;
 }
 .header__left-part, .header__right-part {

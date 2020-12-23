@@ -8,18 +8,32 @@
 .tasks-block__add-task-button:hover:not(:disabled) {
   text-shadow: #479bcd 0 0 10px;
   transform: scale(1.1);
-  transition: 1s;
+  transition: 0.5s;
   cursor: pointer;
 }
 .tasks-block {
   color: black;
-  width: 22%;
+  min-width: 200px;
+  width: 300px;
+  margin: 20px 5px;
+  box-sizing: border-box;
   height: fit-content;
   background:#EBECF0;
-  margin-top: 20px;
   border-radius: 5px;
   padding: 10px;
   font-size: 18px;
+}
+.tasks-block__title {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 5px;
+  margin-right: 10px;
+  background: #EBECF0;
+}
+.tasks-block__title-active {
+  background: white;
 }
 .tasks-block__tasks-container {
   max-height: 300px;
@@ -38,14 +52,21 @@
   border-radius: 9em;
 }
 .tasks-block__header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.tasks-block__header-active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .tasks-block__dots {
-  width: 16px;
-  height: 5px;
+  width: 25px;
+  height: 20px;
+  padding: 0 5px;
 }
 .tasks-block__add-task-button {
   margin-top: 10px;

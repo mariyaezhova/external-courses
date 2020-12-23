@@ -29,5 +29,5 @@ export const header = new DomElement({
         </svg>
       </div>
     </div>
-  `,
+  `
 })

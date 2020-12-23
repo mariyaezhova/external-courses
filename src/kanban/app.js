@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 
-const tasks = [
+let tasks = [
   { id: 0, task: 'task 1', boardId: 0 },
   { id: 1, task: 'task 2', boardId: 0 },
   { id: 2, task: 'task 3', boardId: 0 },
@@ -52,6 +52,17 @@ app.post('/tasks', (req, res) => {
   }
 })
 
+app.delete('/tasks', (req, res) => {
+  const newTasksArr = [];
+  tasks.forEach((elem, index) => {
+    if (elem.boardId !== req.body.boardId) {
+      newTasksArr.push(elem);
+    }
+  })
+  tasks = newTasksArr;
+  res.send(tasks);
+})
+
 app.delete('/tasks/:id', (req, res) => {
   const deleteIndex = tasks.findIndex(elem => elem.id === req.body.id);
 
@@ -65,11 +76,29 @@ const boards = [
   { id: 2, title: "In progress" },
   { id: 3, title: "Finished" },
 ];
+let boardId = boards.length;
 
 app.get('/boards', (req, res) => {
   res.send(boards);
 })
 
-app.get('/boards/:id', (req, res) => {
+app.get('/board/:id', (req, res) => {
   res.send(boards.filter((item) => `${item.id}` === req.params.id));
+})
+
+app.post('/boards', (req, res) => {
+  if (req.body) {
+    const newBoard = { id: boardId, title: req.body.name };
+
+    boards.unshift(newBoard)
+    boardId++;
+    res.send(boards);
+  }
+})
+
+app.delete('/board/:id', (req, res) => {
+  const deleteIndex = boards.findIndex(elem => elem.id === req.body.id);
+
+  boards.splice(deleteIndex, 1);
+  res.send(boards);
 })
