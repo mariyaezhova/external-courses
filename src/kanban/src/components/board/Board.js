@@ -117,12 +117,10 @@ export default class Board {
         type: 'li',
         className: 'tasks-block__empty-item-active',
         html: `
-          <div>
-            <span>Please select a task</span>
-            <svg class="tasks-block__task-arrow-up">
-              <use xlink:href="#arrow"></use>
-            </svg>
-          </div>
+          <span>Please select a task</span>
+          <svg class="tasks-block__task-arrow-up">
+            <use xlink:href="#arrow"></use>
+          </svg>
         `
       });
 
@@ -150,10 +148,10 @@ export default class Board {
 
       });
 
-      this.selectElement.element.addEventListener('click', ({ target: { innerText, value } }) => {
+      this.selectElement.element.addEventListener('click', ({ target }) => {
         this.addButton.disabled = false;
 
-        if (innerText === 'Please select a task') {
+        if (this.emptyElement.element.contains(target)) {
           this.selectElement.removeElement();
 
           return;
@@ -162,7 +160,7 @@ export default class Board {
         this.selectElement.removeElement();
         this.inputItem = new DomElement({ type: 'input', className: 'tasks-block__task' });
         this.inputItem.appendToElement(this.boardContainer);
-        this.inputItem.element.value = innerText;
+        this.inputItem.element.value = target.innerText;
         this.inputItem.addClass('tasks-block__task-not-active');
         this.addTask();
         this.renderElements();
@@ -172,7 +170,7 @@ export default class Board {
         fetch(`/board/${this.previousId}/tasks`)
           .then((res) => res.json())
           .then((res) => {
-            return res.find((elem) => elem.id === value);
+            return res.find((elem) => elem.id === target.value);
           })
           .then((data) => {
             this.deleteTask(data.id);
